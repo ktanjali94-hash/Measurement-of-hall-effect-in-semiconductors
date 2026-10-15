@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiconductor Virtual Lab</title>
+</head>
+<body>
+
+    <h1>Semiconductor Virtual Lab</h1>
+
+    <h2>Measurement of P-Type and N-Type Semiconductor</h2>
+
+    <p>Study the effect of temperature on semiconductors.</p>
+
+    <label>Select Semiconductor:</label>
+
+    <select id="type">
+        <option value="P-Type">P-Type</option>
+        <option value="N-Type">N-Type</option>
+    </select>
+
+    <br><br>
+
+    <label>Temperature (°C):</label>
+
+    <input type="range" id="temp"
+           min="0" max="150" value="25"
+           oninput="showTemp()">
+
+    <p>Temperature: <span id="value">25</span> °C</p>
+
+    <button onclick="measure()">Measure</button>
+
+    <h3 id="result">Your result will appear here.</h3>
+
+    <script>
+        function showTemp() {
+            document.getElementById("value").innerText =
+                document.getElementById("temp").value;
+        }
+
+        function measure() {
+            let type = document.getElementById("type").value;
+            let temp = document.getElementById("temp").value;
+
+            document.getElementById("result").innerText =
+                type + " semiconductor selected at " +
+                temp + " °C.";
+        }
+    </script>
+
+</body>
+</html>
